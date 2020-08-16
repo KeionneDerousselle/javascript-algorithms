@@ -1,13 +1,34 @@
-const reverse = require('./index')
+const { reverse1, reverse2, reverse3, reverse4 } = require('./index')
 
-describe('Reverse function exists', () => {
-  expect(reverse).toBeDefined()
-})
+const reverseFns = [
+  reverse1,
+  reverse2,
+  reverse3,
+  reverse4
+]
 
-describe('Reverse reverses a string', () => {
-  expect(reverse('abcd')).toEqual('dcba')
-})
+describe.each(reverseFns)('Reverse - %p', reverse => {
+  it('should define the reverse function', () => {
+    expect(reverse).toBeDefined()
+  })
 
-describe('Reverse reverses a string', () => {
-  expect(reverse('  abcd')).toEqual('dcba  ')
+  it('should reverse a string', () => {
+    expect(reverse('abcd')).toEqual('dcba')
+  })
+
+  it('should reverse a string with whitespace', () => {
+    expect(reverse('  abcd')).toEqual('dcba  ')
+  })
+
+  it('should return an empty string for undefined', () => {
+    expect(reverse(undefined)).toEqual('')
+  })
+
+  it('should return an empty string for empty string', () => {
+    expect(reverse('')).toEqual('')
+  })
+
+  it('should return an empty string for null', () => {
+    expect(reverse(null)).toEqual('')
+  })
 })

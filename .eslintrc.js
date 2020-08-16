@@ -2,6 +2,7 @@ module.exports = {
   env: {
     es2020: true,
     node: true,
+    jest: true
   },
   extends: 'eslint:recommended',
   parserOptions: {
@@ -108,7 +109,5 @@ module.exports = {
   globals: {
     config: true,
     require: true,
-    describe: true,
-    expect: true
   }
 }
