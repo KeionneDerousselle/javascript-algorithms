@@ -1,6 +1,13 @@
-const reverse = require('./index')
+const { reverse1, reverse2, reverse3, reverse4 } = require('./index')
 
-describe('Reverse', () => {
+const reverseFns = [
+  reverse1,
+  reverse2,
+  reverse3,
+  reverse4
+]
+
+describe.each(reverseFns)('Reverse - %p', reverse => {
   it('should define the reverse function', () => {
     expect(reverse).toBeDefined()
   })
