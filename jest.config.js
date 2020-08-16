@@ -1,5 +1,5 @@
 module.exports = {
-  testMatch: ['<rootDir>/exercises/**/*.spec.js'],
+  testMatch: ['<rootDir>/solutions/**/*.spec.js'],
   coverageThreshold: {
     global: {
       branches: 90,
@@ -7,7 +7,8 @@ module.exports = {
       lines: 90,
       statements: 90
     },
-    './exercises/**/*.js': {
+
+    './solutions/**/*.js': {
       branches: 90,
       functions: 90,
       lines: 90,
@@ -15,7 +16,7 @@ module.exports = {
     }
   },
   collectCoverage: true,
-  collectCoverageFrom: [ 'exercises/**/*.js', '!**/node_modules/**', '!**/vendor/**', ],
+  collectCoverageFrom: [ 'solutions/**/*.js', '!**/node_modules/**', '!**/vendor/**', ],
   moduleNameMapper: {
     '@/(.*)$': '<rootDir>/$1',
   },
