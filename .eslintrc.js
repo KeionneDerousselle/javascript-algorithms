@@ -23,9 +23,9 @@ module.exports = {
         singleValue: false
       }
     ],
-    'array-element-newline': ['error', { multiline: true, minItems: 4 }],
-    'arrow-body-style': ['error', 'as-needed'],
-    'arrow-parens': ['error', 'as-needed'],
+    'array-element-newline': [ 'error', { multiline: true, minItems: 4 } ],
+    'arrow-body-style': [ 'error', 'as-needed' ],
+    'arrow-parens': [ 'error', 'as-needed' ],
     'arrow-spacing': [
       'error',
       {
@@ -33,7 +33,7 @@ module.exports = {
         after: true
       }
     ],
-    'block-spacing': ['error', 'always'],
+    'block-spacing': [ 'error', 'always' ],
     'comma-spacing': [
       'error',
       {
@@ -41,13 +41,13 @@ module.exports = {
         after: true
       }
     ],
-    curly: ['error', 'multi-line'],
+    curly: [ 'error', 'multi-line' ],
     'default-case': 'error',
-    'eol-last': ['error', 'always'],
-    eqeqeq: ['error', 'always'],
+    'eol-last': [ 'error', 'always' ],
+    eqeqeq: [ 'error', 'always' ],
     'keyword-spacing': 'error',
-    'lines-between-class-members': ['error', 'always'],
-    'multiline-ternary': ['error', 'always-multiline'],
+    'lines-between-class-members': [ 'error', 'always' ],
+    'multiline-ternary': [ 'error', 'always-multiline' ],
     'no-alert': 'warn',
     'no-console': 'warn',
     'no-duplicate-imports': 'error',
@@ -80,19 +80,19 @@ module.exports = {
     'no-useless-return': 'error',
     'no-var': 'error',
     'no-whitespace-before-property': 'error',
-    'object-curly-spacing': ['error', 'always'],
+    'object-curly-spacing': [ 'error', 'always' ],
     'padding-line-between-statements': [
       'error',
       { blankLine: 'always', prev: '*', next: 'multiline-block-like' },
       { blankLine: 'always', prev: 'multiline-block-like', next: '*' },
-      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
-      { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] }
+      { blankLine: 'always', prev: [ 'const', 'let', 'var' ], next: '*' },
+      { blankLine: 'any', prev: [ 'const', 'let', 'var' ], next: [ 'const', 'let', 'var' ] }
     ],
     'prefer-const': 'error',
     'prefer-object-spread': 'error',
-    quotes: ['error', 'single', { avoidEscape: true }],
+    quotes: [ 'error', 'single', { avoidEscape: true } ],
     'require-await': 'error',
-    semi: ['error', 'never'],
+    semi: [ 'error', 'never' ],
     'space-before-blocks': 'error',
     'space-before-function-paren': [
       'error',
@@ -107,6 +107,8 @@ module.exports = {
   },
   globals: {
     config: true,
-    require: true
+    require: true,
+    describe: true,
+    expect: true
   }
 }

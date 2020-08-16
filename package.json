@@ -14,6 +14,7 @@
     "rimraf": "^3.0.2"
   },
   "scripts": {
+    "clean:unit-tests": "rimraf ./coverage",
     "eslint": "eslint --ext .js --ignore-path .eslintignore .",
     "lint": "npm run eslint",
     "lint:fix": "npm run eslint -- --fix",
