@@ -15,4 +15,11 @@ const palindrome1 = str => {
   return (str === reversed)
 }
 
-module.exports = { palindrome1 }
+const palindrome2 = str => {
+  if (str === '') return true
+  if (!str) return false
+
+  return str.split('').every((char, index) => char === str[str.length - index - 1])
+}
+
+module.exports = { palindrome1, palindrome2 }

@@ -1,6 +1,6 @@
-const { palindrome1 } = require('./index')
+const { palindrome1, palindrome2 } = require('./index')
 
-const palindromeFns = [palindrome1]
+const palindromeFns = [ palindrome1, palindrome2 ]
 
 describe.each(palindromeFns)('Palindrome - %p', palindrome => {
   it('should defined the palindrome function', () => {
