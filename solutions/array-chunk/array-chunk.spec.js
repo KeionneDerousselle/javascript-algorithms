@@ -1,86 +1,91 @@
-const chunk = require('./index')
+const { arrayChunk1, arrayChunk2, arrayChunk3 } = require('./index')
 
-it('should define the array chunk function', () => {
-  expect(typeof chunk).toEqual('function')
-})
+const arrayChunkFns = [ arrayChunk1, arrayChunk2, arrayChunk3 ]
 
-it('should divide an array of 10 elements with chunk size 2', () => {
-  const arr = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10
-  ]
-  const chunked = chunk(arr, 2)
+describe.each(arrayChunkFns)('Array Chunk - %p', chunk => {
+  it('should define the array chunk function', () => {
+    expect(typeof chunk).toEqual('function')
+  })
 
-  expect(chunked).toEqual([
-    [ 1, 2 ],
-    [ 3, 4 ],
-    [ 5, 6 ],
-    [ 7, 8 ],
-    [ 9, 10 ]
-  ])
-})
-
-it('should divide an array of 3 elements with chunk size 1', () => {
-  const arr = [ 1, 2, 3 ]
-  const chunked = chunk(arr, 1)
-
-  expect(chunked).toEqual([ [1], [2], [3] ])
-})
-
-it('should divide an array of 5 elements with chunk size 3', () => {
-  const arr = [
-    1,
-    2,
-    3,
-    4,
-    5
-  ]
-  const chunked = chunk(arr, 3)
-
-  expect(chunked).toEqual([ [ 1, 2, 3 ], [ 4, 5 ] ])
-})
-
-it('should divide an array of 13 elements with chunk size 5', () => {
-  const arr = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13
-  ]
-  const chunked = chunk(arr, 5)
-
-  expect(chunked).toEqual([
-  [
+  it('should divide an array of 10 elements with chunk size 2', () => {
+    const arr = [
       1,
       2,
       3,
       4,
-      5
-    ],
-    [
+      5,
       6,
       7,
       8,
       9,
       10
-    ],
-    [ 11, 12, 13 ]
-  ])
+    ]
+    const chunked = chunk(arr, 2)
+
+    expect(chunked).toEqual([
+      [ 1, 2 ],
+      [ 3, 4 ],
+      [ 5, 6 ],
+      [ 7, 8 ],
+      [ 9, 10 ]
+    ])
+  })
+
+  it('should divide an array of 3 elements with chunk size 1', () => {
+    const arr = [ 1, 2, 3 ]
+    const chunked = chunk(arr, 1)
+
+    expect(chunked).toEqual([ [1], [2], [3] ])
+  })
+
+  it('should divide an array of 5 elements with chunk size 3', () => {
+    const arr = [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+    const chunked = chunk(arr, 3)
+
+    expect(chunked).toEqual([ [ 1, 2, 3 ], [ 4, 5 ] ])
+  })
+
+  it('should divide an array of 13 elements with chunk size 5', () => {
+    const arr = [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+    const chunked = chunk(arr, 5)
+
+    expect(chunked).toEqual([
+    [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      [ 11, 12, 13 ]
+    ])
+  })
 })
+
