@@ -1,6 +1,8 @@
-const anagram = require('./index.js')
+const { anagram1 } = require('./index.js')
 
-describe('Anagram', () => {
+const anagramFns = [anagram1]
+
+describe.each(anagramFns)('Anagram - %p', anagram => {
   it('should define the anagram function', () => {
     expect(typeof anagram).toEqual('function')
   })

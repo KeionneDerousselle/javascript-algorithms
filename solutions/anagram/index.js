@@ -12,15 +12,18 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 // ----- MY SOLUTION -----
-const getCharMap = str => str.split('').reduce((charMap, char) => {
-  if (!charMap[char]) charMap[char] = 0
-  charMap[char]++
-  return charMap
-}, {})
+const getCharMap = str =>
+  str.split('').reduce((charMap, char) => {
+    if (!charMap[char]) charMap[char] = 0
+    charMap[char]++
+    return charMap
+  }, {})
 
-const anagram = (stringA, stringB) => {
-  const strA = stringA ? stringA.replace(/[^\w]/g, '').toLowerCase() : ''
-  const strB = stringB ? stringB.replace(/[^\w]/g, '').toLowerCase() : ''
+const cleanString = str => str ? str.replace(/[^\w]/g, '').toLowerCase() : ''
+
+const anagram1 = (stringA, stringB) => {
+  const strA = cleanString(stringA)
+  const strB = cleanString(stringB)
 
   if (strA.length !== strB.length) return false
 
@@ -30,4 +33,6 @@ const anagram = (stringA, stringB) => {
   return Object.keys(strACharMap).every(key => strBCharMap[key] === strACharMap[key])
 }
 
-module.exports = anagram
+module.exports = {
+  anagram1
+}
