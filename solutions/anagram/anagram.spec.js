@@ -1,6 +1,6 @@
-const { anagram1 } = require('./index.js')
+const { anagram1, anagram2 } = require('./index.js')
 
-const anagramFns = [anagram1]
+const anagramFns = [ anagram1, anagram2 ]
 
 describe.each(anagramFns)('Anagram - %p', anagram => {
   it('should define the anagram function', () => {

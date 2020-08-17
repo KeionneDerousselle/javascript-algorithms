@@ -33,6 +33,13 @@ const anagram1 = (stringA, stringB) => {
   return Object.keys(strACharMap).every(key => strBCharMap[key] === strACharMap[key])
 }
 
+// ----- SOLUTION 2 -----
+const alphabetizeString = str => str.split('').sort().join('')
+
+const anagram2 = (stringA, stringB) =>
+  alphabetizeString(cleanString(stringA)) === alphabetizeString(cleanString(stringB))
+
 module.exports = {
-  anagram1
+  anagram1,
+  anagram2
 }
