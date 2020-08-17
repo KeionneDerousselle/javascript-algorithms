@@ -11,7 +11,7 @@
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 // ----- MY SOLUTION -----
-const capitalize = str =>
+const capitalize1 = str =>
   str ?
     str
       .split(' ')
@@ -19,4 +19,22 @@ const capitalize = str =>
       .join(' ') :
     ''
 
-module.exports = capitalize
+// ----- SOLUTION 2 -----
+const capitalize2 = str => {
+  let result = ''
+
+  if (str) {
+    result = str[0].toUpperCase()
+
+    for (let i = 1; i < str.length; i++) {
+      result += str[i - 1] === ' ' ? str[i].toUpperCase() : str[i]
+    }
+  }
+
+  return result
+}
+
+module.exports = {
+  capitalize1,
+  capitalize2
+}

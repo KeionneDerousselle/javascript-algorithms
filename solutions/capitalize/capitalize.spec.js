@@ -1,6 +1,7 @@
-const capitalize = require('./index')
+const { capitalize1, capitalize2 } = require('./index')
+const capitalizeFns = [ capitalize1, capitalize2 ]
 
-describe('Capitalize', () => {
+describe.each(capitalizeFns)('Capitalize - %p', capitalize => {
   it('should define capitalize as a function', () => {
     expect(typeof capitalize).toEqual('function')
   })

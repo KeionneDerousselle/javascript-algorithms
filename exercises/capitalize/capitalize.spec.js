@@ -5,7 +5,13 @@ describe('Capitalize', () => {
     expect(typeof capitalize).toEqual('function')
   })
 
-  it.each([ [ 'hi there, how is it going?', 'Hi There, How Is It Going?' ], [ 'i love breakfast at bill miller bbq', 'I Love Breakfast At Bill Miller Bbq' ] ])('should capitalize the first letter of every word in a sentence', (input, expectedResult) => {
+  it.each([
+    [ 'hi there, how is it going?', 'Hi There, How Is It Going?' ],
+    [ 'i love breakfast at bill miller bbq', 'I Love Breakfast At Bill Miller Bbq' ],
+    [ 'a short sentence', 'A Short Sentence' ],
+    [ 'a lazy fox', 'A Lazy Fox' ],
+    [ 'look, it is working!', 'Look, It Is Working!' ]
+  ])('should capitalize the first letter of every word in a sentence', (input, expectedResult) => {
     expect(capitalize(input)).toEqual(expectedResult)
   })
 
