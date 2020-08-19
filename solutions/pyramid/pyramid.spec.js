@@ -13,6 +13,16 @@ describe('Pyramid', () => {
     expect(typeof pyramid).toEqual('function')
   })
 
+  it('should print an empty string if a falsy value is provided', () => {
+    pyramid(undefined)
+    expect(console.log.mock.calls[0][0]).toEqual('')
+  })
+
+  it('should print an empty string if a negative value is provided', () => {
+    pyramid(-2)
+    expect(console.log.mock.calls[0][0]).toEqual('')
+  })
+
   it('should print a pyramid for n = 2', () => {
     pyramid(2)
     expect(console.log.mock.calls[0][0]).toEqual(' # ')

@@ -20,7 +20,10 @@
 
 // ----- MY SOLUTION -----
 const pyramid = n => {
-  if (!n || n < 0) return ''
+  if (!n || n < 0) {
+    console.log('')
+    return
+  }
 
   const gridSize = 2 * n - 1
   const midpoint = Math.floor(gridSize / 2)
