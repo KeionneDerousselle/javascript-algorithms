@@ -1,6 +1,8 @@
-const pyramid = require('./index')
+const { pyramid1, pyramid2 } = require('./index')
 
-describe('Pyramid', () => {
+const pyramidFns = [ pyramid1, pyramid2 ]
+
+describe.each(pyramidFns)('Pyramid - %p', pyramid => {
   beforeEach(() => {
     console.log = jest.fn().mockImplementation(() => {})
   })
