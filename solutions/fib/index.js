@@ -14,8 +14,6 @@
 
 // ----- MY SOLUTION ----- O(n)
 const fib1 = n => {
-  if (n === 1) return 1
-
   const seq = [ 0, 1 ]
 
   for (let i = 2; i <= n; i++) {
@@ -27,8 +25,7 @@ const fib1 = n => {
 
 // ----- SOLUTION 2 ------
 const fib2 = n => {
-  if (n === 1) return 1
-  if (n <= 0) return 0
+  if (n < 2) return n
 
   return fib2(n - 2) + fib2(n - 1)
 }
