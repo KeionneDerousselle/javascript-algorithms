@@ -1,4 +1,7 @@
+/* eslint-disable array-bracket-spacing */
+/* eslint-disable array-element-newline */
 /* eslint-disable no-unused-vars */
+/* eslint-disable array-bracket-newline */
 
 // --- Directions
 // Write a function that returns the number of vowels
@@ -14,41 +17,29 @@
 const vowels1 = str => {
   if (!str || str.length === 0) return 0
 
-  return str.toLowerCase().split('').reduce((count, char) => {
-    if ([
-      'a',
-      'e',
-      'i',
-      'o',
-      'u'
-    ].includes(char)) {
-      count++
-    }
-
-    return count
-  }, 0)
+  return str.toLowerCase().split('').reduce((count, char) => count + ([ 'a', 'e', 'i', 'o', 'u' ].includes(char) ? 1 : 0), 0)
 }
 
 // ----- SOLUTION 2 -----
 const vowels2 = str => {
   if (!str || str.length === 0) return 0
+  const matches = str.match(/[aeiou]/gi)
 
-  return str.toLowerCase().split('').reduce((count, char) => {
-    if ([
-      'a',
-      'e',
-      'i',
-      'o',
-      'u'
-    ].includes(char)) {
-      count++
-    }
+  return matches ? matches.length : 0
+}
 
-    return count
-  }, 0)
+// ----- SOLUTION 3 -----
+const vowels3 = str => {
+  if (!str || str.length === 0) return 0
+
+  return str.toLowerCase()
+    .split('')
+    .filter(char => ['a', 'e', 'i', 'o', 'u'].includes(char))
+    .length
 }
 
 module.exports = {
   vowels1,
-  vowels2
+  vowels2,
+  vowels3
 }

@@ -1,5 +1,5 @@
-const { vowels1, vowels2 } = require('./index')
-const vowelsFns = [ vowels1, vowels2 ]
+const { vowels1, vowels2, vowels3 } = require('./index')
+const vowelsFns = [ vowels1, vowels2, vowels3 ]
 
 describe.each(vowelsFns)('Vowels - %p', vowels => {
   it('should defined vowels as a function', () => {
