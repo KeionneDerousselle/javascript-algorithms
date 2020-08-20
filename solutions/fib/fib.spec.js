@@ -1,5 +1,5 @@
-const { fib1, fib2 } = require('./index')
-const fibFns = [ fib1, fib2 ]
+const { fib1, fib2, fib3 } = require('./index')
+const fibFns = [ fib1, fib2, fib3 ]
 
 describe.each(fibFns)('Fib - %p', fib => {
   it('should define Fib as a function', () => {

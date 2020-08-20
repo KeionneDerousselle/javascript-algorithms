@@ -23,14 +23,43 @@ const fib1 = n => {
   return seq[n]
 }
 
-// ----- SOLUTION 2 ------
-const fib2 = n => {
+// ----- SOLUTION 2 ------ O(2^n) - SLOW AF
+let fib2 = n => {
   if (n < 2) return n
 
   return fib2(n - 2) + fib2(n - 1)
 }
 
+const memoize = fn => {
+  const cache = {}
+
+  return (...args) => {
+    if (cache[args]) return cache[args]
+
+    const result = fn.apply(this, args)
+
+    cache[args] = result
+
+    return result
+  }
+}
+
+fib2 = memoize(fib2)
+
+// ----- MY MEMOIZATION FIB SOLUTION ------ O(2^n)
+const fib3 = (n, memo = {}) => {
+  if (n < 2) return n
+
+  const a = memo[n - 2] || fib3(n - 2, memo)
+  const b = memo[n - 1] || fib3(n - 1, memo)
+
+  memo[n] = a + b
+
+  return memo[n]
+}
+
 module.exports = {
   fib1,
-  fib2
+  fib2,
+  fib3
 }
