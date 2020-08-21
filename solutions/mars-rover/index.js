@@ -36,7 +36,7 @@
 
  * Expected Output:
  * 1 3 N
- * 5 1
+ * 5 1 E
 */
 
 // /^\d\s\d\s?$/g <--bounds
@@ -66,7 +66,7 @@ const parsePlateauBounds = plateauBoundsInstructions => {
 }
 
 const parsePosition = positionInstructions => {
-  if (!positionInstructions || !positionInstructions.match(/\d\s\d\s[N|n|E|e|W|w|S|s]/g)) throw new Error('The position is not valid. You must supply an x coordinate, y coordinate, and cardinal direction. (1 3 S)')
+  if (!positionInstructions || !positionInstructions.match(/\d\s\d\s[N|n|E|e|W|w|S|s]/g)) throw new Error('The rover position is not valid. You must supply an x coordinate, y coordinate, and cardinal direction. (1 3 S)')
 
   const position = positionInstructions.split(' ')
 
@@ -142,15 +142,11 @@ const movementByOrientation = {
   }
 }
 
-const generateOutput = movedRovers => movedRovers.reduce((out, rover) => out + `${rover.x} ${rover.y} ${rover.orientation}\r\n`, '')
+const generateOutput = movedRovers => movedRovers.reduce((out, rover, index) => out + `${rover.x} ${rover.y} ${rover.orientation}${index !== movedRovers.length - 1 ? '\r\n' : ''}`, '')
 
 const conductMission = instructionsStr => {
   const [ plateauInstructions, ...instructions ] = getInstructionsArr(instructionsStr)
-
   const plateau = parsePlateauBounds(plateauInstructions)
-
-  if (!instructions || instructions.length === 0) throw new Error('You must provide instructions to create and move rovers!')
-
   const movedRovers = []
 
   for (let i = 0; i < instructions.length; i += 2) {
@@ -168,4 +164,4 @@ const conductMission = instructionsStr => {
   return generateOutput(movedRovers)
 }
 
-export default conductMission
+module.exports = conductMission
